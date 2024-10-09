@@ -1,3 +1,7 @@
+from second import cislo_text
+
+print(cislo_text("25"))
+
 # funkce, ktera vypise Hello World
 def hello_world():
     print("Hello World")

@@ -1,10 +1,13 @@
 # funkce vypise "Číslo X je sudé" pokud je cislo sude a "Číslo X je liché" pokud je cislo liche
 def sudy_nebo_lichy(cislo):
     if cislo % 2:
-        print("Číslo", cislo, "je liché")
+        return "liche"
     else:
-        print("Číslo", cislo, "je sudé")
+        return "sude"
+
+def main():
+    promena = 1
+    vysledek = sudy_nebo_lichy(promena)
 
 if __name__ == "__main__":
-    sudy_nebo_lichy(5)
-    sudy_nebo_lichy(1000000)
+    main()

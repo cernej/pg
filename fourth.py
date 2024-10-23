@@ -15,8 +15,11 @@ def je_tah_mozny(figurka, cilova_pozice, obsazene_pozice):
 if __name__ == "__main__":
     pesec = {"typ": "pěšec", "pozice": (2, 2)}
     jezdec = {"typ": "jezdec", "pozice": (3, 3)}
+    vez = {"typ": "věž", "pozice": (8, 8)}
+    strelec = {"typ": "střelec", "pozice": (6, 3)}
     dama = {"typ": "dáma", "pozice": (8, 3)}
-    obsazene_pozice = {(2, 2), (8, 2), (3, 3), (5, 4), (8, 3)}
+    kral = {"typ": "král", "pozice": (1, 4)}
+    obsazene_pozice = {(2, 2), (8, 2), (3, 3), (5, 4), (8, 3), (8, 8), (6, 3), (1, 4)}
 
     print(je_tah_mozny(pesec, (3, 2), obsazene_pozice))  # True
     print(je_tah_mozny(pesec, (4, 2), obsazene_pozice))  # False, protože pěšec se nemůže hýbat o dvě pole vpřed (pokud jeho výchozí pozice není v prvním řádku)

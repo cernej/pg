@@ -2,7 +2,13 @@ def jaccardova_vzdalenost_mnozin(mnozina1, mnozina2):
     """
     Jaccardova vzdalenost říká, jak jsou dvě množiny rozdílné 0 znamená, že jsou stejné, 1 znamená, že jsou zcela rozdílné
     """
-    pass
+    mnozina1 = set(mnozina1)
+    mnozina2 = set(mnozina2)
+    intersection = mnozina1.intersection(mnozina2)
+    union = mnozina1.union(mnozina2)
+    jaccarduv_index = len(intersection) / len(union)
+    jaccardova_vzdalenost = 1 - jaccarduv_index
+    return jaccardova_vzdalenost
 
 
 if __name__ == "__main__":

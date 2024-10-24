@@ -28,4 +28,5 @@ if __name__ == "__main__":
         "dotaz": "google",
         "serp": ["https://www.google.com", "https://maps.google.com", "https://www.gmail.com"]
     }
-    print(deduplikace_dotazu([dotaz1, dotaz2, dotaz3]))
+    print(deduplikace_dotazu([dotaz1, dotaz2, dotaz3, dotaz4]))
+

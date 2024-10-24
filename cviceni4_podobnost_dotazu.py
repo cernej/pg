@@ -24,4 +24,8 @@ if __name__ == "__main__":
         "dotaz": "sesnam",
         "serp": ["https://www.jcu.cz", "https://www.czu.cz", "https://www.cvut.cz", "https://www.uk.cz"]
     }
+    dotaz4 = {
+        "dotaz": "google",
+        "serp": ["https://www.google.com", "https://maps.google.com", "https://www.gmail.com"]
+    }
     print(deduplikace_dotazu([dotaz1, dotaz2, dotaz3]))

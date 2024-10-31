@@ -62,6 +62,6 @@ def print_file_type(file_name):
 
 
 if __name__ == '__main__':
-    # přidej try-catch blok, odchyť obecnou vyjímku Exception a vypiš ji
+    # přidej try-except blok, odchyť obecnou vyjímku Exception a vypiš ji
     file_name = sys.argv[1]
     print_file_type(file_name)

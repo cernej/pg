@@ -3,7 +3,11 @@ import csv
 
 def nacti_csv(soubor):
     data = []
-    # nacist data ze souboru
+    fp = open(soubor)
+    reader = csv.reader(fp)
+    for row in reader:
+        data.append(row)
+    fp.close()
     return data
 
 
@@ -34,14 +38,21 @@ def spoj_data(data1, data2):
 
 
 def zapis_csv(soubor, data):
-    pass
+    with open(soubor, "w") as fp:
+        writer = csv.writer(fp)
+        writer.writerows(data)
 
 
 if __name__ == "__main__":
-
-    soubor1 = sys.argv[1]
-    soubor2 = sys.argv[2]
-    csv_data1 = nacti_csv(soubor1)
-    csv_data2 = nacti_csv(soubor2)
-    vysledna_data = spoj_data(csv_data1, csv_data2)
-    zapis_csv("vysledny_excel.csv", vysledna_data)
+    try:
+        soubor1 = sys.argv[1]
+        soubor2 = sys.argv[2]
+        csv_data1 = nacti_csv(soubor1)
+        csv_data2 = nacti_csv(soubor2)
+        vysledna_data = spoj_data(csv_data1, csv_data2)
+        print(vysledna_data)
+        zapis_csv("vysledny_excel.csv", vysledna_data)
+    except IndexError:
+        print("Nebyly zadany soubory")
+    except FileNotFoundError:
+        print("Soubor neexistuje")

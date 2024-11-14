@@ -12,6 +12,7 @@ if __name__ == "__main__":
     data.pop(3)
     print(data)
     
+    json_data = json.dumps(data)
     with open("data.json", "w") as fp:
         fp.write(json_data)
 

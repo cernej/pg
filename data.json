@@ -1,1 +1,1 @@
-[{"Jmeno": "Alice", "vek": 20}, {"Jmeno": "Bob", "vek": 25}, {"Jmeno": "Dave", "vek": 31}, {"Jmeno": "Monika", "vek": 28}]
+[{"Jmeno": "Alice", "vek": 20, "student": true}, {"Jmeno": "Bob", "vek": 25, "student": false}, {"Jmeno": "Dave", "vek": 31, "student": false}, {"Jmeno": "Monika", "vek": 28, "student": true}]

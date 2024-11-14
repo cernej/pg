@@ -17,7 +17,8 @@ def download_url_and_get_all_hrefs(url):
 if __name__ == "__main__":
     try:
         url = sys.argv[1]
-        download_url_and_get_all_hrefs(url)
+        all_hrefs = download_url_and_get_all_hrefs(url)
+        print(all_hrefs)
     # osetrete potencialni chyby pomoci vetve except
     except Exception as e:
         print(f"Program skoncil chybou: {e}")

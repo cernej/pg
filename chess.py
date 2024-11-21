@@ -21,6 +21,10 @@ class Piece(ABC):
         """
         pass
 
+    @staticmethod
+    def is_position_on_board(position):
+        return 1 <= position[0] <= 8 and 1 <= position[1] <= 8
+
     @property
     def color(self):
         return self.__color
@@ -60,7 +64,11 @@ class Knight(Piece):
             (row - 1, col + 2), (row - 1, col - 2)
         ]
         # Filtruje tahy, které jsou mimo šachovnici
-        return [(r, c) for r, c in moves if 0 < r <= 8 and 0 < c <= 8]
+        final_moves = []
+        for move in moves:
+            if self.is_position_on_board(move):
+                final_moves.append(move)
+        return final_moves
 
     def __str__(self):
         return f'Knight({self.color}) at position {self.position}'

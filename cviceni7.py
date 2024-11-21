@@ -3,12 +3,19 @@ class BadDataError(Exception):
 
 
 class Souradnice:
-
     def __init__(self, sirka, delka):
-        self.sirka = sirka
-        self.delka = delka
+        self.__sirka = sirka
+        self.__delka = delka
     
-    def __str__(self) -> str:
+    @property
+    def sirka(self):
+        return self.__sirka
+    
+    @property
+    def delka(self):
+        return self.__delka
+
+    def __str__(self):
         return f'Souradnice: {self.sirka}, {self.delka}'
     
     @classmethod
@@ -29,4 +36,5 @@ if __name__ == "__main__":
     # implementovat tridni metodu nacti_z_dat
     data = {"souradnice": {"sirka": 50, "delka": 50}}
     s = Souradnice.nacti_z_dat(data)
-    print(s)
+    #s.sirka = 60
+    print(s.sirka)

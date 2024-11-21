@@ -22,11 +22,6 @@ class Piece(ABC):
         pass
 
     @property
-    @abstractmethod
-    def symbol(self):
-        pass
-
-    @property
     def color(self):
         return self.__color
 
@@ -35,8 +30,7 @@ class Piece(ABC):
         return self.__position
 
     @position.setter
-    def set_position(self, new_postion):
-        # 
+    def position(self, new_postion):
         self.__position = new_postion
 
     def __str__(self):
@@ -44,7 +38,11 @@ class Piece(ABC):
 
 
 class Pawn(Piece):
-    pass
+    def possible_moves(self):
+        return []
+    
+    def __str__(self):
+        return f'Pawn({self.color}) at position {self.position}'
 
 
 class Knight(Piece):
@@ -63,13 +61,9 @@ class Knight(Piece):
         ]
         # Filtruje tahy, které jsou mimo šachovnici
         return [(r, c) for r, c in moves if 0 < r <= 8 and 0 < c <= 8]
-    
-    @property
-    def symbol(self):
-        return '♞' if self.color == "black" else '♘'
 
     def __str__(self):
-        return f'Knight({self.symbol}) at position {self.position}'
+        return f'Knight({self.color}) at position {self.position}'
 
 
 class Bishop(Piece):
@@ -89,6 +83,6 @@ class King(Piece):
 
 
 if __name__ == "__main__":
-    piece = Knight("white", (1, 2))
+    piece = Knight("black", (1, 2))
     print(piece)
     print(piece.possible_moves())

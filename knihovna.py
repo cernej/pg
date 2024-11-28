@@ -4,8 +4,10 @@ def sudy_lichy(cislo):
     else:
         print("sudy")
 
+
 def vypis_text():
     print("text")
+
 
 if __name__ == "__main__":
     vstup = input("Zadej cislo")

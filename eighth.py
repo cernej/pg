@@ -5,7 +5,7 @@ def bin_to_dec(binarni_cislo):
     return 0
 
 
-def test_funkce():
+def test_bin_to_dec():
     assert bin_to_dec("0") == 0
     assert bin_to_dec(1) == 1
     assert bin_to_dec("100") == 4

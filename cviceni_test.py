@@ -22,5 +22,5 @@ def test_index_pismene():
 
 
 def test_fibonachi():
-    assert fibonachi(5) == [1, 1 ,2 ,3, 5]
-    assert fibonachi(10) == [1, 1 ,2 ,3, 5, 8]
+    assert fibonachi(5) == [1, 1, 2, 3, 5]
+    assert fibonachi(10) == [1, 1, 2, 3, 5, 8]

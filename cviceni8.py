@@ -19,9 +19,25 @@ def pocet_pismen(text, pismeno):
 
 def index_pismene(text, pismeno):
     # funkce vrati indexy daneho pismene v textu, tzn. pro text="ahoj, honzo" a pismeno="h" vrati [1, 6]
-    return []
+    indexy = []
+    i = 0
+    while i < len(text):
+        if text[i] == pismeno:
+            indexy.append(i)
+        i += 1
+    return indexy
+
+
+def fibonachi(maximum):
+    # funkce vrati fibonachiho posloupnost, pro maximum=5 -> [1, 1, 2, 3, 5]
+    fib = [1, 1]
+    soucet = fib[-2] + fib[-1]
+    while soucet <= maximum:
+        fib.append(soucet)
+        soucet = fib[-2] + fib[-1]
+    return fib
 
 
 if __name__ == "__main__":
-    print(obsah_ctverce(5))
-    print(obsah_ctverce(5))
+    #index_pismene("ahoj, honzo", "h")
+    fibonachi(5)

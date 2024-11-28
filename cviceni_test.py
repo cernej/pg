@@ -1,4 +1,4 @@
-from cviceni8 import obsah_ctverce, obvod_ctverce, pocet_pismen, index_pismene
+from cviceni8 import obsah_ctverce, obvod_ctverce, pocet_pismen, index_pismene, fibonachi
 
 
 def test_obsah_ctverce():
@@ -19,3 +19,8 @@ def test_pocet_pismen():
 def test_index_pismene():
     assert index_pismene("ahoj, jak se mas?", "a") == [0, 7, 14]
     assert index_pismene("ahoj, jak se mas?", "x") == []
+
+
+def test_fibonachi():
+    assert fibonachi(5) == [1, 1 ,2 ,3, 5]
+    assert fibonachi(10) == [1, 1 ,2 ,3, 5, 8]

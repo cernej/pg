@@ -24,6 +24,7 @@ def dec_to_bin2(cislo):
 
 
 def dec_to_bin(cislo):
+    cislo = int(cislo)
     if cislo == 0:
         return "0"
     elif cislo == 1:

@@ -1,8 +1,8 @@
 def sudy_lichy(cislo):
-    if cislo % 2 == 0:
-        return "sudy"
-    else:
+    if cislo % 2 != 0:
         return "lichy"
+    else:
+        return "sudy"
 
 
 def test_sudy_lichy():

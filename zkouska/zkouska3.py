@@ -1,16 +1,14 @@
 # Příklad 3: Základy OOP (dědičnost, abstrakce, zapouzdření)
 # Zadání:
-# Vytvořte třídu `Shape` s abstraktní metodou `area`.
-# Vytvořte dvě podtřídy: `Rectangle` a `Circle`.
+# Vytvořte dvě podtřídy třídy `Shape`: `Rectangle` a `Circle`.
 # - `Rectangle` má atributy `width` a `height` a implementuje metodu `area`.
 # - `Circle` má atribut `radius` a implementuje metodu `area`.
 
-from abc import ABC, abstractmethod
 
-class Shape(ABC):
-    @abstractmethod
+class Shape():
+
     def area(self):
-        pass
+        return 0.0
 
 # ZDE DOPLŇTE VLASTNÍ KÓD
 

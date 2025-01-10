@@ -1,50 +1,37 @@
-# Příklad 2: Práce s externími knihovnami a soubory
+# Příklad 3: Práce s externími daty a výpočty
 # Zadání:
-# Napište funkci `fetch_and_save_data`, která:
-# 1. Načte data z URL (https://jsonplaceholder.typicode.com/posts).
-# 2. Do staženého json souboru přidá klíč `userName` s hodnotou jména uživatele podle klíče `userId` z URL (např. 1 -> "Leanne Graham").
-# 3. Data uloží do souboru `data.json` ve formátu JSON.
-# Použijte knihovny `requests` a `json`.
+# Napište funkci `convert_to_czk`, která:
+# 1. Přijme částku (`amount`) jako desetinné číslo a kód měny (`currency`) jako řetězec (např. "USD", "EUR").
+# 2. Stáhne aktuální kurzovní lístek z URL:
+#    http://www.cnb.cz/cs/financni_trhy/devizovy_trh/kurzy_devizoveho_trhu/denni_kurz.txt
+# 3. Načte příslušný kurz podle zadaného kódu měny a provede převod zadané částky na české koruny (CZK).
+# 4. Funkce vrátí výslednou částku v CZK zaokrouhlenou na dvě desetinná místa.
+# Pokud zadaná měna v kurzovním lístku neexistuje, vyhoďte výjimku `ValueError`.
 
 import requests
-import json
 
-url = "https://jsonplaceholder.typicode.com/posts"
-user_names = {
-    1: "Leanne Graham",
-    2: "Ervin Howell",
-    3: "Clementine Bauch",
-    4: "Patricia Lebsack",
-    5: "Chelsey Dietrich",
-    6: "Mrs. Dennis Schulist",
-    7: "Kurtis Weissnat",
-    8: "Nicholas Runolfsdottir V",
-    9: "Glenna Reichert",
-    10: "Clementina DuBuque"
-}
-
-def fetch_and_save_data():
-    # ZDE NAPIŠTE VÁŠ KÓD
+def convert_to_czk(amount, currency):
     pass
 
-# Pytest testy pro Příklad 2
-from unittest.mock import patch, MagicMock, mock_open
+# Pytest testy pro Příklad 3
+from unittest.mock import patch, MagicMock
 
-def test_fetch_and_save_data():
-    mock_data = [
-        {"userId": 1, "id": 1, "title": "Test post", "body": "This is a test."}
-    ]
+def test_convert_to_czk():
+    mock_response = """31.10.2025 #237
+země|měna|množství|kód|kurz
+Austrálie|dolar|1|AUD|14,894
+EMU|euro|1|EUR|25,480
+USA|dolar|1|USD|23,000
+Velká Británie|libra|1|GBP|29,745
+"""
     with patch("requests.get") as mock_get:
-        mock_get.return_value = MagicMock(ok=True, status_code=200, json=MagicMock(return_value=mock_data), text=json.dumps(mock_data), content=json.dumps(mock_data))
+        mock_get.return_value = MagicMock(ok=True, status_code=200, text=mock_response)
 
-        with patch("builtins.open", mock_open()) as mock_file:
-            assert fetch_and_save_data() == True
-            mock_file().write.call_args[0][0] == json.dumps([
-                {
-                    "userId": 1,
-                    "id": 1,
-                    "title": "Test post",
-                    "body": "This is a test.",
-                    "userName": "Leanne Graham"
-                }
-            ])
+        assert convert_to_czk(100, "USD") == 2300.00
+        assert convert_to_czk(50, "EUR") == 1274.00
+        assert convert_to_czk(200, "AUD") == 2978.80
+        
+        try:
+            convert_to_czk(100, "XYZ")
+        except ValueError as e:
+            assert str(e) == "Currency XYZ not found in the exchange rate list."

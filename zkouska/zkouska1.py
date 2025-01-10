@@ -1,16 +1,16 @@
-# Příklad 1: Práce s podmínkami a cykly
+# Příklad 1: Práce s podmínkami a řetězci
 # Zadání:
-# Napište funkci `process_numbers`, která přijme seznam celých čísel. 
-# Funkce vrátí nový seznam, který obsahuje pouze čísla větší než 5, vynásobená 2.
-# Pokud seznam obsahuje číslo 10, ukončete zpracování seznamu a vraťte dosud vytvořený seznam.
+# Napište funkci `process_strings`, která přijme seznam řetězců. 
+# Funkce vrátí nový seznam, který obsahuje pouze řetězce delší než 3 znaky, převedené na velká písmena.
+# Pokud seznam obsahuje řetězec "STOP", ukončete zpracování seznamu a vraťte dosud vytvořený seznam.
 
-def process_numbers(numbers):
+def process_strings(strings):
     # ZDE NAPIŠTE VÁŠ KÓD
     pass
 
-# Pytest testy pro Příklad 1
-def test_process_numbers():
-    assert process_numbers([1, 6, 3, 10, 8]) == [12]
-    assert process_numbers([7, 8, 10, 12]) == [14, 16]
-    assert process_numbers([1, 2, 3, 4]) == []
-    assert process_numbers([5, 6, 7, 15]) == [12, 14, 30]
+# Pytest testy pro Příklad 2
+def test_process_strings():
+    assert process_strings(["abc", "abcd", "STOP", "efgh"]) == ["ABCD"]
+    assert process_strings(["hello", "world", "STOP", "python"]) == ["HELLO", "WORLD"]
+    assert process_strings(["hi", "ok", "go"]) == []
+    assert process_strings(["code", "test", "debug"]) == ["CODE", "TEST", "DEBUG"]

@@ -22,8 +22,3 @@ def test_shapes():
     circle = Circle(3)
     assert round(circle.area(), 1) == 28.3
 
-    with patch("abc.ABC", side_effect=NotImplementedError):
-        try:
-            shape = Shape()
-        except TypeError:
-            pass

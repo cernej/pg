@@ -1,16 +1,24 @@
 # Příklad 1: Práce s podmínkami a řetězci
 # Zadání:
-# Napište funkci `process_strings`, která přijme seznam řetězců. 
-# Funkce vrátí nový seznam, který obsahuje pouze řetězce delší než 3 znaky, převedené na velká písmena.
-# Pokud seznam obsahuje řetězec "STOP", ukončete zpracování seznamu a vraťte dosud vytvořený seznam.
+# Napište funkci `find_divisible`, která přijme číslo max_number a dělitel divisor. 
+# Funkce vrátí seznam všech čísel menších nebo rovno max_number, která jsou dělitelná beze zbytku dělitelem divisor.
+# Příklad: find_divisible(5, 2) vrátí [2, 4].
 
-def process_strings(strings):
+
+def find_divisible(max_number, divisor):
     # ZDE NAPIŠTE VÁŠ KÓD
     pass
 
-# Pytest testy pro Příklad 2
-def test_process_strings():
-    assert process_strings(["abc", "abcd", "STOP", "efgh"]) == ["ABCD"]
-    assert process_strings(["hello", "world", "STOP", "python"]) == ["HELLO", "WORLD"]
-    assert process_strings(["hi", "ok", "go"]) == []
-    assert process_strings(["code", "test", "debug"]) == ["CODE", "TEST", "DEBUG"]
+
+# Unit testy
+def test_find_divisible():
+    assert find_divisible(25, 5) == [5, 10, 15, 20, 25]
+    assert find_divisible(9, 3) == [3, 6, 9]
+    assert find_divisible(13, 2) == [2, 4, 6, 8, 10, 12]
+
+
+if __name__ == "__main__":
+    max_number = 100
+    divisor = int(input("Enter divisor: "))
+    result = find_divisible(max_number, divisor)
+    print(f'Numbers divisible by {divisor} less than or equal to {max_number}: {result}')
